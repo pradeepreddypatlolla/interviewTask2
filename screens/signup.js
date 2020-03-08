@@ -40,14 +40,7 @@ class SignUp extends Component {
 
 
 
-        // Firebase.auth().onAuthStateChanged(user=>{
-        //   console.log(user)
-        //   if(user){
-        //     this.props.navigation.navigate('SignedIn');
-        //     console.log("AUTH")
-        //   }
-          
-        // })
+
 
 
 
@@ -75,6 +68,8 @@ class SignUp extends Component {
         <TextInput style={{borderWidth:1,margin:2,width:"100%"}} placeholder="PASSWORD" onChangeText={password=>set1(password)}></TextInput>
        
         <Button  title="Sign Up"  onPress={()=>func()} />
+
+        <Text style={{margin:50,padding:50}} > Already a user ? </Text>
 
         <Button  title="Login"  onPress={()=>this.props.navigation.navigate('SignIn')} />
        

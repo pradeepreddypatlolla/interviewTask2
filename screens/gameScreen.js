@@ -6,11 +6,12 @@ import {observer,inject} from 'mobx-react';
 {
     constructor(props){
         super(props);
-        this.state={board:['','','','','','','','',''],result:""}
+        this.state={board:['','','','','','','','',''],result:"",mins:0,secs:0}
 
     }
 
 render(){
+
     const isWinner=(bo,le)=>{
 
              return ((bo[7] == le && bo[8] == le && bo[9] == le) || 
@@ -225,9 +226,19 @@ const chooseRandomMoveFromList=(board,movesList)=>{
 
     }
 
+
+
+    const startTimer=()=>{
+
+        setInterval( this.setState({board:this.state.board,result:this.state.result}) )
+
+    }
+
     return(
         <View >
             <Text style={{marginLeft:100}}>TIC TAC TOE</Text>
+            <Text> {this.state.timer[0]}:{this.state.timer[1]}:{this.state.timer[2] }</Text>
+
             <View style={{padding:20,marginLeft:50}}>
             <View style={{flexDirection:'row'}}>
     <TouchableOpacity style={{width:50,height:50,borderRightWidth:1,borderBottomWidth:1 }} onPress={()=>func(0) } ><View ><Text>{this.state.board[0]}</Text></View></TouchableOpacity>
@@ -256,7 +267,7 @@ const chooseRandomMoveFromList=(board,movesList)=>{
                     </Text>
                     </View>
 
-                <Button style={{margin:2}} title="Play Again" onPress={()=>this.setState({board:["","","","","","","","",""],result:""})}/>
+                <Button style={{margin:2}} title="Play Again" onPress={()=>this.setState({board:["","","","","","","","",""],result:"",timer:[0,0,0]}),()=>startTimer()}/>
 
                 <Button  title="Profile" onPress={()=>this.props.navigation.navigate('Profile')}/>
             </View>

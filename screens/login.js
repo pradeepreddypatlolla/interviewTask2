@@ -28,8 +28,7 @@ import {inject,observer} from 'mobx-react';
           appId: "1:589375190524:web:803cd49bcd4c8deb62ee79",
           measurementId: "G-NERXB2T29T"
         };
-        // Initialize Firebase
-        //Firebase.initializeApp(firebaseConfig);
+        
         if (!Firebase.apps.length) {
           Firebase.initializeApp(firebaseConfig);
        }
@@ -41,14 +40,7 @@ import {inject,observer} from 'mobx-react';
 
 
 
-        // Firebase.auth().onAuthStateChanged(user=>{
-        //   console.log(user)
-        //   if(user){
-        //     this.props.navigation.navigate('SignedIn');
-        //     console.log("AUTH")
-        //   }
-          
-        // })
+
 
 
 
